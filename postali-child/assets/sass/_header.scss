@@ -1,0 +1,318 @@
+/**
+ * Header Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+header {
+    background:$blk;
+    display:flex;
+    height:95px;
+    position: fixed;
+    top:0;
+    width:100%;
+    z-index: 15; 
+    box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.4);
+    @media screen and (max-width:$screen-lg) {
+        height:75px;
+    }
+    #header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width:100%;
+        #header-top_left {
+            display: flex;
+            width: 100%;
+            justify-content: flex-start;
+            .custom-logo-link {
+                width: 100%;
+                height: auto;
+                display:flex;
+                .custom-logo {
+                    max-height: 75px;
+                    max-width:415px;
+                    @media screen and (max-width:$screen-sm) {
+                        max-width: 90%;
+                    }
+                }
+            }
+        }
+        #header-top_right {
+            justify-content: flex-end;
+            display:flex;
+            flex-wrap: nowrap;
+            .cta-block__header {
+                @media screen and (max-width:$screen-sm) {
+                    display:none;
+                }
+            }
+            #header-top_menu {
+                #nav-container {
+                    position: absolute;
+                    top:95px;
+                    padding: 30px;
+                    background: $blk;
+                    height: calc(100vh - 95px);
+                    overflow-x: scroll;
+                    width:375px;
+                    transition: .5s ease all;
+                    opacity: 0;
+                    right: calc(-375px - 2.1%);
+
+                    @media screen and (max-width:$screen-lg) {
+                        width:100%;
+                        top:75px;
+                        height: calc(100vh - 75px);
+                    }
+                    &.open {
+                        right: -2.1%;
+                        transition: .5s ease all;
+                        opacity: 1;
+                        margin: 0;
+                        box-sizing: border-box;
+                        
+                        @media screen and (max-width:$screen-lg) {
+                            transform: translateX(0);
+                            width: 104.2%;
+                        }
+                    }
+                    #menu-main-menu {
+                        padding: 0;
+                        background: $blk;
+                        height: auto;
+                        box-sizing: border-box;
+                        li {
+                            display:flex;
+                            margin: 0;
+                            flex-wrap: wrap;
+                            padding: 0;
+                            position: relative;
+                            &::after {
+                                content: "";
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                border-bottom: 1px solid #555;
+                                position: absolute;
+                            }
+                            .accordion-toggle {
+                                position: absolute;
+                                top: 5px;
+                                right: 0;
+                                z-index: 10;
+                                width: 30px;
+                                height: 30px;
+                                transition:$trans;
+                                display:flex;
+                                justify-content: center;
+                                align-items: center;
+                                span {
+                                    color: $white;
+                                    font-size: 13px;
+                                    font-weight: $bold;
+                                    transition:$trans;
+                                    position:absolute;
+                                }
+                                &.toggle-background {
+                                    transition:$trans;
+                                    .toggle-rotate {
+                                        position: absolute;
+                                        &::before {
+                                            content:"\e904";
+                                        }
+                                    }
+                                } 
+                            }  
+                            &.current-menu-parent,
+                            &.current-menu-item,
+                            &.current-page-ancestor {
+                                a {
+                                    color:$yellow;
+                                }
+                                &:hover {
+                                    .sub-menu {
+                                        left:0;
+                                        .current_page_item {
+                                            a {
+                                                color:$yellow !important;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            a {
+                                color:$white;
+                                padding:10px 0;
+                                text-transform: none;
+                                font-size: 18px;
+                                font-family: $sans;
+                                font-weight:$bold;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                vertical-align: middle;
+                                position: relative;
+                                overflow: hidden;
+                                text-decoration: none !important;
+                                z-index: 1;
+                                &:hover,
+                                &.current_page_item {
+                                    color:$yellow;
+                                }
+                            }
+                            ul.sub-menu {
+                                white-space: nowrap;
+                                transition: $trans;
+                                position: relative;
+                                overflow: hidden;
+                                background: $blk;
+                                margin: 0;
+                                padding: 0;
+                                width: 100%;
+                                max-height: 0;
+                                transition: all .4s ease;
+                                &.open {
+                                    display: block;
+                                    max-height: 300px;
+                                    transition: all .4s ease;
+                                    padding:0 0 10px 0;
+                                }
+                                li {
+                                    display:block;
+                                    margin: 0;
+                                    padding: 0;
+                                    height:auto;
+                                    a {
+                                        color:$white;
+                                        font-family: $sans;
+                                        font-size: 13px;
+                                        text-transform: none;
+                                        letter-spacing: 0;
+                                        transition:.3s ease all;
+                                        padding: 10px 0;
+                                        line-height: 100%;
+                                        font-weight: normal;
+                                        &:hover {
+                                            color:$yellow;
+                                            transition:.3s ease all;
+                                        }
+                                    }
+                                    &.current-menu-item {
+                                        a {
+                                            color:$yellow;
+                                            transition:.3s ease all;
+                                        }
+                                    }
+                                    &::after {
+                                        display:none;
+                                    }
+                                }
+                                &:hover li.menu-item-has-children {
+                                    color:$white;
+                                }
+                            }
+                        }
+                    }
+                    .navbar-form-search {
+                        position: relative;
+                        display: flex;
+                        margin: 15px 0 25px 0;
+                        .form-control {
+                            padding: 5px 10px;
+                            width: calc(100% - 50px);
+                            border:none;
+                        }
+                        .btn-search {
+                            width: 50px;
+                            padding: 0;
+                            border: 0;
+                            background: $white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 40px;
+                            .icon-magnifying-glass {
+                                &::before {
+                                    color: $blk;
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                    .cta-block__header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        .cta-text {
+                            p {
+                                font-weight: normal;
+                                font-size: 13px;
+                            }
+                        }
+                        .cta-button {
+                            .btn {
+                                padding: 0 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #header-top_mobile {
+        display: flex;
+        position: relative;
+        height:40px;
+        width:40px;
+        justify-content: center;
+        align-items: center;
+        border:1px solid $white;
+        border-radius: 50%;
+        #menu-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+            display: block;
+            margin-top: 0;
+            margin-right: 0;
+            .line {
+                display: block;
+                background:$white;
+                width: 20px;
+                height: 1px;
+                position: absolute;
+                left: calc(50% - 10px);
+                transition: all 0.4s;
+                -webkit-transition: all 0.4s;
+                -moz-transition: all 0.4s;
+                &.line-1 {
+                    top: 35%;
+                }
+                &.line-2 {
+                    top: 50%;
+                }
+                &.line-3 {
+                    top: 65%;
+                }
+            }
+            &.active {
+                .line-1 {
+                    transform: translateY(5px) translateX(0) rotate(45deg);
+                    -webkit-transform: translateY(5px) translateX(0) rotate(45deg);
+                    -moz-transform: translateY(5px) translateX(0) rotate(45deg);
+                }
+                .line-2 {
+                    opacity: 0;
+                }
+                .line-3 {
+                    transform: translateY(-7px) translateX(0) rotate(-45deg);
+                    -webkit-transform: translateY(-7px) translateX(0) rotate(-45deg);
+                    -moz-transform: translateY(-7px) translateX(0) rotate(-45deg);
+                }
+            }
+        }
+    }    
+}

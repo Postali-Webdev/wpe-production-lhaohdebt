@@ -1,0 +1,184 @@
+/**
+ * Web Font Styles, H Styles, Body Text Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Outfit:wght@300;700&display=swap');
+
+/* Fonts */
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
+    // color: $body-text-color;
+} 
+p, a, ul, ol {
+
+}
+ul li, ol li {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}
+dl, blockquote, img {
+
+}
+
+a {
+    text-decoration:none;
+    -webkit-transition:$trans;
+    transition:$trans;
+    &:hover {
+        // color:$lt-red;
+        text-decoration:none;
+    }
+}
+
+.btn {
+    display: inline-flex;
+    padding: 0 50px;
+    height:58px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s linear;
+    background: $blk;
+    font-family: $sans;
+    font-size: 16px;
+    line-height: 100%;
+    color:$white;
+    font-weight: $bold;
+    &::before,
+    &::after {
+        display:none;
+    }
+    &:hover {
+        background-color: $bgdkblue;
+        color:$blk;
+        &::before {
+            display: none;
+        }
+    }
+}
+
+.underlined {
+    position:relative;
+    display: inline-block;
+    text-decoration: underline;
+    text-decoration-color: $yellow;
+    text-decoration-thickness: 2px;
+    &:hover {
+        text-decoration: underline;
+        text-decoration-color: $yellow;
+        text-decoration-thickness: 2px;
+    }
+}
+
+p {
+    font-size:16px;
+    line-height: 160%;
+    margin-bottom:30px;
+    font-family: $serif;
+    &.sans {
+        font-family: $sans;
+    }
+    &.small {
+        font-size: 13px !important;
+    }
+    &.large {
+        font-size: 34px;
+        line-height: 140%;
+        margin-bottom: 15px;
+    }
+    &.caps {
+        text-transform: uppercase;
+    }
+    a {
+        color:inherit;
+        font-family: inherit;
+        position: relative;
+        font-weight: bold;
+        display:inline-flex;
+        border-bottom: 2px solid $yellow;
+        &:hover {
+            color:#777;
+            transition:$trans;
+            
+        }
+    }
+}
+
+h1 {
+    font-family: $serif;
+    text-transform: none;
+    font-size: 50px;
+    color:$blk;
+    margin-bottom: 20px;
+    font-weight: normal;
+    line-height:120%;
+    &.homepage {
+        font-family: $sans;
+        font-weight: $bold;
+        text-transform: none;
+    }
+    @media screen and (max-width:$screen-md) {
+        font-size: 44px;
+    }
+    @media screen and (max-width:$screen-xs) {
+        font-size: 40px;
+    }
+}
+
+h2 {
+    font-family: $sans;
+    font-weight: $bold;
+    text-transform: none;
+    font-size: 40px;
+    color:$blk;
+    margin-bottom: 10px;
+    &.small {
+        font-family: $sans;
+        font-weight: $bold;
+        text-transform: none;
+        font-size: 24px;
+        color:$blk;
+        margin-bottom: 0;
+    }
+}
+
+h3 {
+    font-family: $sans;
+    font-weight: $bold;
+    text-transform: none;
+    font-size: 30px;
+    color:$blk;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-family: $sans;
+    font-weight: $bold;
+    text-transform: none;
+    font-size: 24px;
+    color:$blk;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-family: $sans;
+    font-weight: $bold;
+    text-transform: none;
+    font-size: 34px;
+    color:$blk;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    line-height: 90%;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 10px;
+        height: 82%;
+        width: 1px;
+        border-left: 2px solid $yellow;
+        rotate: 25deg;
+        top: 0;
+    }
+}
