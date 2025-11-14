@@ -73,6 +73,7 @@ endif; ?>
 						</div>
 					</div>
                     <div id="nav-container">
+                        <nav role="navigation">
 						<?php
 							$args = array(
 								'container' => false,
@@ -80,6 +81,7 @@ endif; ?>
 							);
 							wp_nav_menu( $args );
 						?>
+                        </nav>
                         <form class="navbar-form-search" role="search" method="get" action="/">
                             <input type="text" name="s" placeholder="Search for..." id="search-input-5cab7fd94d469" value="" class="form-control">
 							<button type="submit" class="btn btn-search" aria-label="Site search" id="search-button"><span class="icon-magnifying-glass" aria-hidden="true"></span></button>
